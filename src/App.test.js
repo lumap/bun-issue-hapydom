@@ -1,8 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+/// <reference lib="dom" />
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import { cleanup, render, screen } from '@testing-library/react';
+import { expect, test } from "bun:test";
+import App from "./App";
+
+test('Home button renders', () => {
+    render(
+        <App />
+    );
+
+    expect(screen.getByText("Home")).toBeTruthy();
+
+    cleanup();
 });
